@@ -8,8 +8,15 @@ define([
 
     decorated.call(this, container, $container);
 
+
     container.on('select', function (evt) {
-      self._selectTriggered(evt);
+  		window.setTimeout(function ()
+  		{
+    		if (container.isOpen())
+    		{
+    			self._selectTriggered(evt);
+    		}
+  		}, 1);
     });
 
     container.on('unselect', function (evt) {
